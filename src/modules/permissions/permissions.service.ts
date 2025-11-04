@@ -18,4 +18,48 @@ export class PermissionsService {
         }
         return permission;
     }
+
+    async getUserPermission(userId: number): Promise<string[]> {
+        const permissions = await this.prismaService.user.findUnique({
+            where: { id: userId },
+            include: {
+                role: {
+                    include: {
+                        rolePermissions: {
+                            include: {
+                                permission: true,
+                            },
+                        },
+                    },
+                },
+            },
+        });
+
+        if (!permissions) return [];
+
+        return (
+            permissions.role.rolePermissions.map((rp) => rp.permission.key) ||
+            []
+        );
+    }
+
+    async userHasAnyPermission(
+        userId: number,
+        permissions: string[],
+    ): Promise<boolean> {
+        const userPermissions = await this.getUserPermission(userId);
+        return permissions.some((permission) =>
+            userPermissions.includes(permission),
+        );
+    }
+
+    async userHasAllPermissions(
+        userId: number,
+        permissions: string[],
+    ): Promise<boolean> {
+        const userPermissions = await this.getUserPermission(userId);
+        return permissions.every((permission) =>
+            userPermissions.includes(permission),
+        );
+    }
 }

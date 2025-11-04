@@ -12,6 +12,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+public/uploads/photos/*
+!public/uploads/photos/.gitkeep
+
+
 # OS
 .DS_Store
 
