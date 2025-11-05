@@ -207,12 +207,11 @@ export class EmployeeBranchesService {
     async remove(id: number): Promise<void> {
         const employeeBranch = await this.findOne(id);
         return this.prismaService.$transaction(async (prisma) => {
-            await prisma.user.delete({
-                where: { id: employeeBranch.userId },
-            });
-
             await prisma.employeeBranch.delete({
                 where: { id },
+            });
+            await prisma.user.delete({
+                where: { id: employeeBranch.userId },
             });
         });
     }
