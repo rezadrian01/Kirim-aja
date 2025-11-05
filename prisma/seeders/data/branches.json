@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "name": "Jakarta Branch",
+            "address": "Jl. Sudirman No. 123, Jakarta Pusat, DKI Jakarta",
+            "phone_number": "08123456789"
+        },
+        {
+            "name": "Surabaya Branch",
+            "address": "Jl. Pemuda No. 45, Surabaya, Jawa Timur",
+            "phone_number": "08234567890"
+        },
+        {
+            "name": "Bandung Branch",
+            "address": "Jl. Asia Afrika No. 78, Bandung, Jawa Barat",
+            "phone_number": "08345678901"
+        },
+        {
+            "name": "Medan Branch",
+            "address": "Jl. Gatot Subroto No. 56, Medan, Sumatera Utara",
+            "phone_number": "08456789012"
+        }
+    ]
+}
