@@ -1,0 +1,94 @@
+{
+    "data": [
+        {
+            "name": "Ahmad Kurniawan",
+            "email": "ahmad.kurniawan@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08123456701",
+            "roleKey": "courier",
+            "branchName": "Jakarta Branch",
+            "type": "courier"
+        },
+        {
+            "name": "Siti Rahayu",
+            "email": "siti.rahayu@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08123456702",
+            "roleKey": "admin-branch",
+            "branchName": "Jakarta Branch",
+            "type": "admin"
+        },
+        {
+            "name": "Budi Santoso",
+            "email": "budi.santoso@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08234567801",
+            "roleKey": "courier",
+            "branchName": "Surabaya Branch",
+            "type": "courier"
+        },
+        {
+            "name": "Dewi Lestari",
+            "email": "dewi.lestari@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08234567802",
+            "roleKey": "admin-branch",
+            "branchName": "Surabaya Branch",
+            "type": "admin"
+        },
+        {
+            "name": "Eko Prasetyo",
+            "email": "eko.prasetyo@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08345678902",
+            "roleKey": "courier",
+            "branchName": "Bandung Branch",
+            "type": "courier"
+        },
+        {
+            "name": "Fitri Handayani",
+            "email": "fitri.handayani@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08345678903",
+            "roleKey": "admin-branch",
+            "branchName": "Bandung Branch",
+            "type": "admin"
+        },
+        {
+            "name": "Hendra Wijaya",
+            "email": "hendra.wijaya@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08456789013",
+            "roleKey": "courier",
+            "branchName": "Medan Branch",
+            "type": "courier"
+        },
+        {
+            "name": "Indah Permata",
+            "email": "indah.permata@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08456789014",
+            "roleKey": "admin-branch",
+            "branchName": "Medan Branch",
+            "type": "admin"
+        },
+        {
+            "name": "Joko Susilo",
+            "email": "joko.susilo@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08123456703",
+            "roleKey": "courier",
+            "branchName": "Jakarta Branch",
+            "type": "courier"
+        },
+        {
+            "name": "Kartika Sari",
+            "email": "kartika.sari@kirimaja.com",
+            "password": "password123",
+            "phoneNumber": "08234567803",
+            "roleKey": "courier",
+            "branchName": "Surabaya Branch",
+            "type": "courier"
+        }
+    ]
+}
