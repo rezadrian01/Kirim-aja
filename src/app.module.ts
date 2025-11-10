@@ -11,6 +11,7 @@ import { BranchesModule } from './modules/branches/branches.module';
 import { EmployeeBranchesModule } from './modules/employee-branches/employee-branches.module';
 import { UserAddressModule } from './modules/user-address/user-address.module';
 import { EmailService } from './common/email/email.service';
+import { QueueModule } from './common/queue/queue.module';
 
 @Module({
     imports: [
@@ -21,6 +22,7 @@ import { EmailService } from './common/email/email.service';
         BranchesModule,
         EmployeeBranchesModule,
         UserAddressModule,
+        QueueModule,
     ],
     controllers: [AppController],
     providers: [AppService, PrismaService, JwtStrategy, EmailService],
