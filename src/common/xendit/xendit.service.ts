@@ -10,7 +10,7 @@ const { Invoice } = xendit;
 @Injectable()
 export class XenditService {
     async createInvoice(data: {
-        externalID: string;
+        externalId: string;
         amount: number;
         [key: string]: any;
     }): Promise<any> {

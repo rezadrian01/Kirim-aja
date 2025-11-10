@@ -6,6 +6,10 @@ import { EmailService } from 'src/common/email/email.service';
 export interface EmailJobData {
     to: string;
     type: string;
+    shipmentId?: number;
+    amount?: number;
+    paymentUrl?: string;
+    expiryDate?: Date;
 }
 
 @Processor('email-queue')
@@ -24,6 +28,18 @@ export class EmailQueueProcessor {
                 case 'testing':
                     await this.emailService.testingEmail(data.to);
                     this.logger.log(`Test email sent to ${data.to}`);
+                    break;
+                case 'payment-notification':
+                    await this.emailService.sendEmailPaymentNotification(
+                        data.to,
+                        data.paymentUrl || '',
+                        data.shipmentId || 0,
+                        data.amount || 0,
+                        data.expiryDate || new Date(),
+                    );
+                    this.logger.log(
+                        `Payment notification email sent to ${data.to}`,
+                    );
                     break;
                 default:
                     this.logger.warn(`Unknown email type: ${data.type}`);

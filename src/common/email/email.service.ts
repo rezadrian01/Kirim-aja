@@ -48,4 +48,26 @@ export class EmailService {
         };
         await this.transporter.sendMail(mailOptions);
     }
+
+    async sendEmailPaymentNotification(
+        to: string,
+        paymentUrl: string,
+        shipmentId: number,
+        amount: number,
+        expiryDate: Date,
+    ) {
+        const templateData = {
+            shipmentId,
+            amount,
+            paymentUrl,
+            expiryDate: expiryDate.toLocaleString(),
+        };
+        const mailOptions = {
+            from: process.env.SMTP_EMAIL_SENDER,
+            to,
+            subject: 'Payment Notification',
+            html: this.compileTemplate('payment-notification', templateData),
+        };
+        await this.transporter.sendMail(mailOptions);
+    }
 }
