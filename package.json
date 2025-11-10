@@ -40,6 +40,7 @@
         "bull": "^4.16.5",
         "class-transformer": "^0.5.1",
         "dotenv": "^16.5.0",
+        "geolib": "^3.3.4",
         "handlebars": "^4.7.8",
         "multer": "^2.0.2",
         "nodemailer": "^7.0.10",

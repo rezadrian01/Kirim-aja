@@ -1,4 +1,4 @@
-export enum PaymenStatus {
+export enum PaymentStatus {
     PENDING = 'PENDING',
     PAID = 'PAID',
     SETTLED = 'SETTLED',

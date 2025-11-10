@@ -12,7 +12,10 @@ export class XenditService {
     async createInvoice(data: {
         externalId: string;
         amount: number;
-        [key: string]: any;
+        payerEmail?: string;
+        description?: string;
+        successRedirectUrl?: string;
+        invoiceDuration?: number;
     }): Promise<any> {
         return await Invoice.createInvoice({ data });
     }
