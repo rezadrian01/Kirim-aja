@@ -8,7 +8,6 @@ import { Shipment } from '@prisma/client';
 import { XenditService } from 'src/common/xendit/xendit.service';
 import { getDistance } from 'geolib';
 import { PaymentStatus } from 'src/common/enum/payment-status.enum';
-import { date } from 'zod/v4';
 
 @Injectable()
 export class ShipmentsService {
@@ -130,8 +129,10 @@ export class ShipmentsService {
             },
         );
 
+        const distanceInKm = Math.ceil(distance / 1000);
+
         const shipmentCost = this.calculateShipmentCost(
-            distance,
+            distanceInKm,
             createShipmentDto.weight,
             createShipmentDto.delivery_type,
         );
@@ -141,7 +142,7 @@ export class ShipmentsService {
                 const newShipment = await prisma.shipment.create({
                     data: {
                         paymentStatus: PaymentStatus.PENDING,
-                        distance: distance,
+                        distance: distanceInKm,
                         price: shipmentCost.totalPrice,
                     },
                 });
@@ -202,15 +203,14 @@ export class ShipmentsService {
                 return createdPayment;
             },
         );
-
         try {
             await this.queueService.addEmailJob({
                 type: 'payment-notification',
                 to: userAddress.user.email,
                 shipmentId: shipment.id,
                 amount: shipmentCost.totalPrice,
-                paymentUrl: payment.invoiceUrl as string,
-                expiryDate: payment.expiryDate as Date,
+                paymentUrl: invoice.invoiceUrl as string,
+                expiryDate: invoice.expiryDate as Date,
             });
         } catch (error) {
             console.error(

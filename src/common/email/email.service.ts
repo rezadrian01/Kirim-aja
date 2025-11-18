@@ -58,9 +58,9 @@ export class EmailService {
     ) {
         const templateData = {
             shipmentId,
-            amount,
+            amount: amount.toLocaleString('id-ID'),
             paymentUrl,
-            expiryDate: expiryDate.toLocaleString(),
+            expiryDate: expiryDate.toDateString(),
         };
         const mailOptions = {
             from: process.env.SMTP_EMAIL_SENDER,
