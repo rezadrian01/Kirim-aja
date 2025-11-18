@@ -3,6 +3,8 @@ import { EmailService } from '../email/email.service';
 import { EmailQueueProcessor } from './processors/email-queue.processor';
 import { QueueService } from './queue.service';
 import { BullModule } from '@nestjs/bull';
+import { PaymentExpiredQueueProcessor } from './processors/payment-expired-queue-processor';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Module({
     imports: [
@@ -13,11 +15,22 @@ import { BullModule } from '@nestjs/bull';
                 password: process.env.REDIS_PASSWORD || undefined,
             },
         }),
-        BullModule.registerQueue({
-            name: 'email-queue',
-        }),
+        BullModule.registerQueue(
+            {
+                name: 'email-queue',
+            },
+            {
+                name: 'payment-expired-queue',
+            },
+        ),
     ],
-    providers: [QueueService, EmailService, EmailQueueProcessor],
+    providers: [
+        QueueService,
+        EmailService,
+        EmailQueueProcessor,
+        PaymentExpiredQueueProcessor,
+        PrismaService,
+    ],
     exports: [QueueService],
 })
 export class QueueModule {}
